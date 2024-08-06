@@ -1,0 +1,10 @@
+node_modules
+todo.txt
+.env
+log.txt
+tmpfile
+.env.*
+!.env.example
+ids.csv
+datasets.xslx
+
