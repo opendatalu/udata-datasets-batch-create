@@ -24,5 +24,15 @@ Copy the `.env.example` file into a file named `.env`. Adjust the following vari
 
 ```npm run main```
 
+### Update visibility
+
+All the datasets are created by default in private mode. You can update their visibility with the `change-visibility.js` script. It takes 2 parameters, the id of a dataset and the state of the private flag (true or false).
+
+It is possible to give a list of IDs one per line in a text file to this script:
+
+```
+cat ids.txt | while read i; do node change-visibility.js $i true; done
+```
+
 ## License
 This software is (c) [Information and press service](https://sip.gouvernement.lu/en.html) of the luxembourgish government and licensed under the MIT license.

@@ -32,4 +32,25 @@ async function createDatasetFromJSON (dataset) {
   }
 }
 
-export { createDatasetFromJSON }
+async function updateDataset (id, payload) {
+  try {
+    const res = await fetchThrottle(odpURL + '/datasets/' + id + '/', {
+      headers: {
+        Accept: 'application/json, text/plain, */*',
+        'Content-Type': 'application/json;charset=utf-8',
+        'X-API-KEY': odpAPIKey
+      },
+      body: JSON.stringify(payload),
+      method: 'PUT'
+    })
+    if (!res.ok) {
+      res.text().then(t => { throw t })
+    }
+    return res.json()
+  } catch (e) {
+    console.error(e)
+    return {}
+  }
+}
+
+export { createDatasetFromJSON, updateDataset }
