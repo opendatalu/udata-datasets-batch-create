@@ -111,4 +111,4 @@ async function main () {
     console.log(result.id, ';', d[0])
   }
 }
-main().then(() => { log((new Date()).toLocaleString(), 'Sync successful') }).catch(e => { console.error(e); process.exitCode = 1 })
+main().then(() => { log((new Date()).toLocaleString(), 'Dataset creation successful') }).catch(e => { console.error(e); process.exitCode = 1 })
