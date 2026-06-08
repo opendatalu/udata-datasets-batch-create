@@ -49,7 +49,7 @@ function toODPDataset (line) {
 }
 
 function formatTags (tags) {
-  tags = tags.split(';').map(e => e.trim())
+  tags = tags.split('\n').map(e => e.trim())
   tags = tags.map(t => { return t.normalize('NFD').replace(/[\u0300-\u036f]/g, '') }) // remove accents
   tags = tags.map(t => { return t.replace(/^[a-zA-Z]+'/, '') }) // remove articles with apostrophe
   tags = tags.map(t => { return t.replace(/[.']/g, '') }) // remove special characters because udata removes them and we need to be able to compare
