@@ -53,4 +53,24 @@ async function updateDataset (id, payload) {
   }
 }
 
-export { createDatasetFromJSON, updateDataset }
+async function deleteDataset (id) {
+  try {
+    const params = {
+      headers: {
+        Accept: 'application/json, text/plain, */*',
+        'Content-Type': 'application/json;charset=utf-8',
+        'X-API-KEY': odpAPIKey
+      },
+      method: 'DELETE'
+    }
+    const res = await fetchThrottle(odpURL + '/datasets/' + id + '/', params)
+
+    return (res.ok)
+  } catch (e) {
+    console.error(e)
+    return false
+  }
+}
+
+
+export { createDatasetFromJSON, updateDataset, deleteDataset }
